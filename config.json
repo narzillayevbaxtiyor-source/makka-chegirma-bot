@@ -1,7 +1,7 @@
 {
   "channel": "@tartibliaka",
   "admin_username": "Foydaliadmi",
-  "delete_old_webhook": true,
+  "delete_old_webhook": false,
   "rss_feeds": [],
   "extra_pages": [
     "https://qooty.net/en/ksa/makkah/othaim-market-offers",
@@ -61,5 +61,6 @@
   "remember_days": 60,
   "deepseek_model": "deepseek-chat",
   "make_card": true,
-  "card_max_items": 8
+  "card_max_items": 8,
+  "admin_chat_id": 8536028957
 }

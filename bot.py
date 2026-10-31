@@ -437,10 +437,17 @@ def main() -> int:
         log(f"✅ Joylandi: {store} — {len(products)} ta mahsulot ({url})")
         time.sleep(3)
 
-    save_state(state)
     summary = f"Bot ishladi: {posted} ta post, {errors} ta xato."
     log(summary)
-    if posted or errors:
+    save_state(state)
+    try:
+        (ROOT / "state" / "last_run.txt").write_text(
+            datetime.now(MAKKAH_TZ).strftime("%Y-%m-%d %H:%M") + "\n" + "\n".join(log_lines),
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
+    if posted or errors or DRY_RUN:
         notify_admin(state, "🤖 @Oziqovaqt_bot hisoboti\n" + "\n".join(log_lines[-25:]))
     return 0
 

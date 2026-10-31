@@ -24,8 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
@@ -40,5 +40,11 @@ jobs:
         run: |
           git config user.name "chegirma-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add state/posted.json
-          git diff --cached --quiet || (git commit -m "holat yangilandi" && git push)
+          git add state/
+          if git diff --cached --quiet; then echo "O'zgarish yo'q"; exit 0; fi
+          git commit -m "holat yangilandi"
+          for i in 1 2 3; do
+            git pull --rebase -X theirs origin main && git push origin HEAD:main && exit 0
+            echo "Push urinish $i muvaffaqiyatsiz"; sleep 5
+          done
+          exit 1

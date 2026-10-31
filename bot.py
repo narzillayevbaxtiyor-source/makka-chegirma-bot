@@ -17,6 +17,7 @@ Ishlash tartibi (har ishga tushganda):
 import html
 import json
 import os
+import random
 import re
 import sys
 import time
@@ -199,7 +200,9 @@ def collect_candidates(state: dict) -> list[dict]:
                 continue
             if title_matches(it["title"]):
                 cands.append(it)
-    for url in CONFIG.get("extra_pages", []):
+    pages = list(CONFIG.get("extra_pages", []))
+    random.shuffle(pages)  # har safar boshqa sahifalardan boshlash
+    for url in pages:
         cands.append({"title": "", "url": url, "always_recheck": True})
     # takrorlarni olib tashlash
     seen, uniq = set(), []
@@ -240,7 +243,8 @@ Return ONLY a JSON object with this exact shape:
   "valid_from": "YYYY-MM-DD or empty",
   "valid_to": "YYYY-MM-DD or empty",
   "products": [
-    {"name": "product name as on the page (English)",
+    {"store": "store name for THIS product in Latin letters (pages may list several stores)",
+     "name": "product name as on the page (English)",
      "name_uz": "short natural Uzbek (Latin script) name of the product, keep brand names, e.g. 'Nido sut kukuni'",
      "size": "size/weight/pack as on the page, e.g. '2.25 kg', '4x200 ml', or empty",
      "old_price": number,
@@ -331,13 +335,35 @@ def fmt_date(s: str) -> str | None:
     return f"{d.day}-{UZ_MONTHS[d.month - 1]}"
 
 
+STORE_ALIASES = {
+    "othaim": "Othaim", "panda": "Panda", "lulu": "Lulu", "carrefour": "Carrefour",
+    "danube": "Danube", "bindawood": "BinDawood", "bin dawood": "BinDawood",
+    "nokhba": "Al Nokhba", "noori": "Noori", "wafa": "Al Wafa", "abraj": "Abraj",
+    "tamimi": "Tamimi", "farm": "Farm", "raya": "Al Raya", "manuel": "Manuel",
+}
+
+
+def norm_store(s: str) -> str:
+    low = (s or "").lower()
+    for k, v in STORE_ALIASES.items():
+        if k in low:
+            return v
+    return (s or "Do'kon").strip().title()
+
+
 def hashtag(s: str) -> str:
     return "#" + re.sub(r"[^0-9A-Za-z_]", "", s.title().replace(" ", ""))
 
 
 def build_post(store: str, data: dict, products: list[dict]) -> str:
     e = html.escape
-    head = [f"🔥 <b>{e(store.upper())}</b> — katta chegirmalar!"]
+    stores = {norm_store(p.get("store") or store) for p in products}
+    single = len(stores) == 1
+    if single:
+        store = next(iter(stores))
+        head = [f"🔥 <b>{e(store.upper())}</b> — katta chegirmalar!"]
+    else:
+        head = ["🔥 <b>Makkadagi eng katta chegirmalar!</b>"]
     vf, vt = fmt_date(data.get("valid_from", "")), fmt_date(data.get("valid_to", ""))
     if vf and vt:
         head.append(f"📅 {vf} – {vt}")
@@ -347,16 +373,17 @@ def build_post(store: str, data: dict, products: list[dict]) -> str:
     footer = [
         "",
         "⏳ Aksiya zaxira tugaguncha amal qiladi.",
-        f"{hashtag(store)} #chegirma #Makka",
+        " ".join(hashtag(s) for s in sorted(stores)[:4]) + " #chegirma #Makka",
         f"👉 {CONFIG['channel']}",
     ]
     max_items = int(CONFIG.get("max_items_per_post", 10))
     lines: list[str] = []
     for i, p in enumerate(products[:max_items], 1):
         name = p.get("name_uz") or p.get("name") or ""
-        size = f" {p['size']}" if p.get("size") else ""
+        size = f" {p['size']}" if p.get("size") and p["size"].lower() not in name.lower() else ""
+        where = "" if single else f"  🏬 {e(norm_store(p.get('store') or store))}"
         item = (
-            f"{p.get('emoji') or '🛒'} <b>{e(name)}{e(size)}</b>\n"
+            f"{p.get('emoji') or '🛒'} <b>{e(name)}{e(size)}</b>{where}\n"
             f"     <s>{fmt_price(p['old_price'])}</s> ➜ <b>{fmt_price(p['new_price'])} SAR</b>"
             f"  (−{p['pct']}%)"
         )
@@ -416,7 +443,7 @@ def main() -> int:
         store = (data.get("store") or "Do'kon").strip()
         products = []
         for p in clean_products(data, text):
-            key = f"{store}|{p.get('name','').lower()}|{p['new_price']}"
+            key = f"{norm_store(p.get('store') or store)}|{p.get('name','').lower()}|{p['new_price']}"
             if key not in state["products"]:
                 p["_key"] = key
                 products.append(p)
@@ -431,8 +458,9 @@ def main() -> int:
             errors += 1
             log(f"⚠️ Kanalga yuborilmadi: {e}")
             continue
-        for p in products[: int(CONFIG.get("max_items_per_post", 10))]:
-            state["products"][p["_key"]] = today_s
+        if not DRY_RUN:  # sinovda eslab qolmaymiz, haqiqiy ishga tushishda chiqsin
+            for p in products[: int(CONFIG.get("max_items_per_post", 10))]:
+                state["products"][p["_key"]] = today_s
         posted += 1
         log(f"✅ Joylandi: {store} — {len(products)} ta mahsulot ({url})")
         time.sleep(3)

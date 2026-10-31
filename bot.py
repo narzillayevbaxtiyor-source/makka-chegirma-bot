@@ -145,15 +145,44 @@ def publish(caption: str, image_url: str | None, state: dict) -> None:
 # --------------------------------------------------------------------------
 # Manbalarni yig'ish
 # --------------------------------------------------------------------------
+BROWSER_HEADERS = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9,ar;q=0.8",
+    "Cache-Control": "no-cache",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+}
+
+
 def http_get(url: str) -> str:
-    r = requests.get(
-        url,
-        headers={"User-Agent": UA, "Accept-Language": "en,ar;q=0.8"},
-        timeout=40,
-    )
-    r.raise_for_status()
-    r.encoding = r.encoding or "utf-8"
-    return r.text
+    """Avval to'g'ridan-to'g'ri, bloklansa Jina Reader orqali o'qiydi."""
+    try:
+        r = requests.get(url, headers=BROWSER_HEADERS, timeout=40)
+        if r.status_code == 200 and len(r.text) > 500:
+            r.encoding = r.encoding or "utf-8"
+            return r.text
+        direct_err = f"HTTP {r.status_code}"
+    except Exception as e:
+        direct_err = str(e)[:80]
+    headers = {"Accept": "text/plain", "X-Return-Format": "text"}
+    jina_key = os.environ.get("JINA_API_KEY", "").strip()
+    if jina_key:
+        headers["Authorization"] = f"Bearer {jina_key}"
+    last = ""
+    for attempt in range(3):
+        try:
+            r = requests.get("https://r.jina.ai/" + url, headers=headers, timeout=90)
+            if r.status_code == 200 and len(r.text) > 300:
+                log(f"  ↪ Jina orqali o'qildi ({direct_err}): {url}")
+                return r.text
+            last = f"Jina HTTP {r.status_code}"
+        except Exception as e:
+            last = f"Jina: {str(e)[:80]}"
+        time.sleep(4 * (attempt + 1))
+    raise RuntimeError(f"to'g'ridan: {direct_err}; {last}")
 
 
 def rss_items(feed_url: str) -> list[dict]:

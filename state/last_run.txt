@@ -1,4 +1,8 @@
-2026-10-31 09:13
+2026-10-31 09:17
 ⚠️ getUpdates ishlamadi: Telegram getUpdates: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-RSS https://www.wowdeals.me/rss: 10 ta maqola
-Bot ishladi: 0 ta post, 0 ta xato.
+⚠️ https://qooty.net/en/ksa/makkah/panda-offers: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/panda-offers
+⚠️ https://qooty.net/en/ksa/makkah/deals/breads-buns: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/deals/breads-buns
+⚠️ https://qooty.net/en/ksa/makkah/lulu-market-offers: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/lulu-market-offers
+⚠️ https://qooty.net/en/ksa/makkah/deals/dishwash: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/deals/dishwash
+⚠️ https://qooty.net/en/ksa/makkah/carrefour-offers: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/carrefour-offers
+Bot ishladi: 0 ta post, 5 ta xato.

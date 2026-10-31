@@ -359,8 +359,29 @@ class handler(BaseHTTPRequestHandler):
         self.wfile.write(b"ok")
 
     def do_GET(self):
+        missing = [n for n, v in (("TELEGRAM_BOT_TOKEN", BOT_TOKEN), ("GEMINI_API_KEY", GEMINI_KEY),
+                                  ("WEBHOOK_SECRET", WEBHOOK_SECRET)) if not v]
+        if missing:
+            out = "⚠️ Vercel'da kalitlar yetishmayapti: " + ", ".join(missing)
+        elif "setup" in (self.path or ""):
+            # Webhookni faqat shu manzilning o'ziga ulaydi — xavfsiz, qayta bosilsa ham zarar yo'q
+            host = self.headers.get("x-forwarded-host") or self.headers.get("host")
+            try:
+                tg("setWebhook", url=f"https://{host}/api/telegram", secret_token=WEBHOOK_SECRET,
+                   allowed_updates=["message", "callback_query"])
+                out = "✅ Skrinshot boti ulandi! Endi @Oziqovaqt_bot ga rasm yuboring."
+            except Exception as e:
+                out = f"⚠️ Ulanmadi: {e}"
+        else:
+            try:
+                info = tg("getWebhookInfo")
+                ok = "/api/telegram" in info.get("url", "")
+                out = "Bot ishlayapti ✅" if ok else "Kalitlar bor ✅, lekin webhook ulanmagan. Manzil oxiriga ?setup=1 qo'shib oching."
+                if info.get("last_error_message"):
+                    out += f"\nOxirgi xato: {info['last_error_message']}"
+            except Exception as e:
+                out = f"⚠️ Telegram: {e}"
         self.send_response(200)
         self.send_header("Content-Type", "text/plain; charset=utf-8")
         self.end_headers()
-        ok = all([BOT_TOKEN, GEMINI_KEY, WEBHOOK_SECRET])
-        self.wfile.write(("Bot ishlayapti ✅" if ok else "Kalitlar to'liq emas ⚠️").encode())
+        self.wfile.write(out.encode())

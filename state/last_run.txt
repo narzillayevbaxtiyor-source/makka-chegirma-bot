@@ -1,9 +1,8 @@
-2026-10-31 09:23
-ℹ️ Eski webhook o'chirildi. @Foydaliadmi botga /start yozsin.
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
-✅ Joylandi: Panda — 10 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products)
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
-✅ Joylandi: Al Nokhba markets — 9 ta mahsulot (https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers)
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/lulu-market-offers
-✅ Joylandi: Lulu — 16 ta mahsulot (https://qooty.net/en/ksa/makkah/lulu-market-offers)
+2026-10-31 09:29
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/othaim-market-offers
+✅ Joylandi: Othaim Market — 18 ta mahsulot (https://qooty.net/en/ksa/makkah/othaim-market-offers)
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/dishwash
+✅ Joylandi: Carrefour, Lulu market, Abraj Hypermarkrt, Noori Supermarket, Yeleq Store, AL WAFA — 12 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/dishwash)
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/panda-offers
+✅ Joylandi: Panda — 17 ta mahsulot (https://qooty.net/en/ksa/makkah/panda-offers)
 Bot ishladi: 3 ta post, 0 ta xato.

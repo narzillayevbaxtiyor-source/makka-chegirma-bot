@@ -1,0 +1,4 @@
+2026-10-31 09:13
+⚠️ getUpdates ishlamadi: Telegram getUpdates: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
+RSS https://www.wowdeals.me/rss: 10 ta maqola
+Bot ishladi: 0 ta post, 0 ta xato.

@@ -1,10 +1,8 @@
-2026-10-31 09:49
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/laundry
-✅ Joylandi: Carrefour, Lulu market, Abraj Hypermarkrt, Noori Supermarket, AL WAFA, Yeleq Store — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/laundry)
+2026-10-31 21:27
   ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
 ✅ Joylandi: Panda — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products)
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/dishwash
-– Yetarli katta chegirma yo'q (2 ta): https://qooty.net/en/ksa/makkah/deals/dishwash
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/breads-buns
+✅ Joylandi: Panda — 7 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/breads-buns)
   ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/lulu-market-offers
 ✅ Joylandi: Lulu — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/lulu-market-offers)
 Bot ishladi: 3 ta post, 0 ta xato.

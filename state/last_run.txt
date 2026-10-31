@@ -1,8 +1,87 @@
-2026-10-31 09:17
+2026-10-31 09:20
 ⚠️ getUpdates ishlamadi: Telegram getUpdates: Conflict: can't use getUpdates method while webhook is active; use deleteWebhook to delete the webhook first
-⚠️ https://qooty.net/en/ksa/makkah/panda-offers: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/panda-offers
-⚠️ https://qooty.net/en/ksa/makkah/deals/breads-buns: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/deals/breads-buns
-⚠️ https://qooty.net/en/ksa/makkah/lulu-market-offers: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/lulu-market-offers
-⚠️ https://qooty.net/en/ksa/makkah/deals/dishwash: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/deals/dishwash
-⚠️ https://qooty.net/en/ksa/makkah/carrefour-offers: 403 Client Error: Forbidden for url: https://qooty.net/en/ksa/makkah/carrefour-offers
-Bot ishladi: 0 ta post, 5 ta xato.
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/laundry
+DRY_RUN: admin chat topilmadi, post faqat logda:
+🔥 <b>Makkadagi eng katta chegirmalar!</b>
+📍 Makka filiallarida
+
+🧴 <b>Lulu Wisepicks suyuq yuvish vositasi 3 L</b>  🏬 Lulu
+     <s>32.95</s> ➜ <b>12.99 SAR</b>  (−61%)
+🧴 <b>Persil suyuq yuvish vositasi 1 L</b>  🏬 Abraj
+     <s>25.95</s> ➜ <b>10.99 SAR</b>  (−58%)
+🧺 <b>Tide kir yuvish kukuni 2.25 kg</b>  🏬 Lulu
+     <s>37.95</s> ➜ <b>16.99 SAR</b>  (−55%)
+🧴 <b>Comfort mato yumshatgichi 3 L</b>  🏬 Carrefour
+     <s>31.99</s> ➜ <b>14.99 SAR</b>  (−53%)
+🧺 <b>Tstir kir yuvish kukuni 5 kg</b>  🏬 Lulu
+     <s>39.95</s> ➜ <b>18.99 SAR</b>  (−52%)
+🧺 <b>Ariel kir yuvish kukuni 2.25 kg</b>  🏬 Al Wafa
+     <s>36.99</s> ➜ <b>18.99 SAR</b>  (−49%)
+🧴 <b>Downy konsentrlangan mato yumshatgichi 1 L</b>  🏬 Lulu
+     <s>24.25</s> ➜ <b>12.99 SAR</b>  (−46%)
+🧴 <b>Downy gulli mato yumshatgichi 3 L</b>  🏬 Noori
+     <s>34.95</s> ➜ <b>18.99 SAR</b>  (−46%)
+
+⏳ Aksiya zaxira tugaguncha amal qiladi.
+#Abraj #AlWafa #Carrefour #Lulu #chegirma #Makka
+👉 @tartibliaka
+✅ Joylandi: Carrefour, Lulu market, Abraj Hypermarkrt, Noori Supermarket, AL WAFA, Yeleq Store — 18 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/laundry)
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/othaim-market-offers
+DRY_RUN: admin chat topilmadi, post faqat logda:
+🔥 <b>OTHAIM</b> — katta chegirmalar!
+📍 Makka filiallarida
+
+🥜 <b>Haley yeryong&#x27;oq moyi</b>
+     <s>11.99</s> ➜ <b>4.99 SAR</b>  (−58%)
+🍯 <b>Haley toza asali</b>
+     <s>53.99</s> ➜ <b>24.99 SAR</b>  (−54%)
+🍟 <b>Haley pishloqli chips</b>
+     <s>9.98</s> ➜ <b>5.99 SAR</b>  (−40%)
+🍬 <b>Storck Toffifee konfetlari</b>
+     <s>53.99</s> ➜ <b>33.99 SAR</b>  (−37%)
+🍪 <b>Haley original pechenyelari</b>
+     <s>10.99</s> ➜ <b>6.99 SAR</b>  (−36%)
+🍫 <b>Galaxy mini funduq shokoladi</b>
+     <s>19.99</s> ➜ <b>12.99 SAR</b>  (−35%)
+🍫 <b>Snickers mini shokoladlari</b>
+     <s>19.99</s> ➜ <b>12.99 SAR</b>  (−35%)
+🍫 <b>Galaxy Jewels shokoladi</b>
+     <s>100</s> ➜ <b>69.99 SAR</b>  (−30%)
+🍪 <b>Haley xurmo maamuli</b>
+     <s>14.99</s> ➜ <b>10.99 SAR</b>  (−27%)
+🫒 <b>Maretta Kalamata zaytunlari</b>
+     <s>36.99</s> ➜ <b>26.99 SAR</b>  (−27%)
+
+⏳ Aksiya zaxira tugaguncha amal qiladi.
+#Othaim #chegirma #Makka
+👉 @tartibliaka
+✅ Joylandi: Othaim Market — 10 ta mahsulot (https://qooty.net/en/ksa/makkah/othaim-market-offers)
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
+DRY_RUN: admin chat topilmadi, post faqat logda:
+🔥 <b>Makkadagi eng katta chegirmalar!</b>
+📍 Makka filiallarida
+
+🍬 <b>Kunjutli halva</b>  🏬 Noori
+     <s>21.95</s> ➜ <b>13.99 SAR</b>  (−36%)
+🍬 <b>Al Jameel oddiy halva 1 kg</b>  🏬 Abraj
+     <s>39.95</s> ➜ <b>25.99 SAR</b>  (−35%)
+🍬 <b>Al Jameel pista halva 1 kg</b>  🏬 Abraj
+     <s>50.95</s> ➜ <b>32.99 SAR</b>  (−35%)
+🍪 <b>Mamoul Kuvayt/Almas mamoul 60 gm</b>  🏬 Abraj
+     <s>57</s> ➜ <b>39 SAR</b>  (−32%)
+🌴 <b>Awghun Safri va Sagai xurmosi 200g</b>  🏬 Al Wafa
+     <s>13.99</s> ➜ <b>9.99 SAR</b>  (−29%)
+🌴 <b>Safavi xurmosi 1 kg</b>  🏬 Al Wafa
+     <s>29.99</s> ➜ <b>21.99 SAR</b>  (−27%)
+🌴 <b>Medjool xurmosi 1 kg</b>  🏬 Al Wafa
+     <s>39.99</s> ➜ <b>29.99 SAR</b>  (−25%)
+🌴 <b>Amber xurmosi 1 kg</b>  🏬 Al Wafa
+     <s>39.99</s> ➜ <b>29.99 SAR</b>  (−25%)
+🌴 <b>Mabroom xurmosi 1 kg</b>  🏬 Al Wafa
+     <s>39.99</s> ➜ <b>29.99 SAR</b>  (−25%)
+
+⏳ Aksiya zaxira tugaguncha amal qiladi.
+#Abraj #AlWafa #Noori #chegirma #Makka
+👉 @tartibliaka
+✅ Joylandi: Panda — 10 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products)
+Bot ishladi: 3 ta post, 0 ta xato.

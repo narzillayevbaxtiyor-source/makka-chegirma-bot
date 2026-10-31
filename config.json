@@ -1,6 +1,7 @@
 {
   "channel": "@tartibliaka",
   "admin_username": "Foydaliadmi",
+  "delete_old_webhook": true,
 
   "rss_feeds": [],
   "extra_pages": [

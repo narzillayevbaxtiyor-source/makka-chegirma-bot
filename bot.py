@@ -96,8 +96,13 @@ def find_admin_chat(state: dict) -> None:
     try:
         updates = tg("getUpdates", timeout=0, allowed_updates=["message"])
     except Exception as e:  # webhook o'rnatilgan bo'lsa ham shu yerga tushadi
-        log(f"⚠️ getUpdates ishlamadi: {e}")
-        return
+        if "webhook" in str(e).lower() and CONFIG.get("delete_old_webhook"):
+            tg("deleteWebhook", drop_pending_updates=False)
+            log("ℹ️ Eski webhook o'chirildi. @Foydaliadmi botga /start yozsin.")
+            updates = tg("getUpdates", timeout=0, allowed_updates=["message"])
+        else:
+            log(f"⚠️ getUpdates ishlamadi: {e}")
+            return
     for u in updates:
         m = u.get("message") or {}
         frm = m.get("from") or {}

@@ -385,7 +385,7 @@ def hashtag(s: str) -> str:
 
 
 def build_post(store: str, data: dict, products: list[dict]) -> str:
-    e = html.escape
+    e = lambda s: html.escape(s, quote=False)
     stores = {norm_store(p.get("store") or store) for p in products}
     single = len(stores) == 1
     if single:

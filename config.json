@@ -2,7 +2,6 @@
   "channel": "@tartibliaka",
   "admin_username": "Foydaliadmi",
   "delete_old_webhook": true,
-
   "rss_feeds": [],
   "extra_pages": [
     "https://qooty.net/en/ksa/makkah/othaim-market-offers",
@@ -16,18 +15,51 @@
     "https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products",
     "https://qooty.net/en/ksa/makkah/deals/breads-buns"
   ],
-
-  "stores": ["danube", "bindawood", "bin dawood", "panda", "othaim", "lulu", "carrefour", "tamimi", "farm", "nesto", "manuel", "noori", "al raya"],
-  "country_keywords": ["ksa", "saudi", "jeddah", "makkah", "mecca", "western"],
-  "skip_title_keywords": ["uae", "qatar", "kuwait", "oman", "bahrain", "riyadh", "eastern region", "southern region", "central region", "qassim", "electronics", "luggage"],
-
+  "stores": [
+    "danube",
+    "bindawood",
+    "bin dawood",
+    "panda",
+    "othaim",
+    "lulu",
+    "carrefour",
+    "tamimi",
+    "farm",
+    "nesto",
+    "manuel",
+    "noori",
+    "al raya"
+  ],
+  "country_keywords": [
+    "ksa",
+    "saudi",
+    "jeddah",
+    "makkah",
+    "mecca",
+    "western"
+  ],
+  "skip_title_keywords": [
+    "uae",
+    "qatar",
+    "kuwait",
+    "oman",
+    "bahrain",
+    "riyadh",
+    "eastern region",
+    "southern region",
+    "central region",
+    "qassim",
+    "electronics",
+    "luggage"
+  ],
   "min_discount_percent": 25,
   "min_items_per_post": 3,
   "max_items_per_post": 10,
   "max_posts_per_run": 3,
   "max_pages_per_run": 5,
   "post_if_region_unknown": true,
-  "attach_image": false,
   "remember_days": 60,
-  "deepseek_model": "deepseek-chat"
+  "deepseek_model": "deepseek-chat",
+  "make_card": true,
+  "card_max_items": 8
 }

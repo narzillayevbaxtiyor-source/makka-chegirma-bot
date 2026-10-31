@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/telegram.py": {
+      "maxDuration": 60,
+      "includeFiles": "{card.py,config.json,fonts/**}"
+    }
+  }
+}

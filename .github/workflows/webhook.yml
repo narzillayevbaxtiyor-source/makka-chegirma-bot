@@ -1,0 +1,25 @@
+name: Skrinshot botini ulash
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "Vercel manzili, masalan https://makka-chegirma-bot.vercel.app"
+        required: true
+
+jobs:
+  set:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Webhookni o'rnatish
+        env:
+          TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          SECRET: ${{ secrets.WEBHOOK_SECRET }}
+          URL: ${{ inputs.url }}
+        run: |
+          curl -sS "https://api.telegram.org/bot${TOKEN}/setWebhook" \
+            --data-urlencode "url=${URL%/}/api/telegram" \
+            --data-urlencode "secret_token=${SECRET}" \
+            --data-urlencode 'allowed_updates=["message","callback_query"]'
+          echo
+          curl -sS "https://api.telegram.org/bot${TOKEN}/getWebhookInfo" | sed -E 's/bot[0-9]+:[A-Za-z0-9_-]+/bot***/g'

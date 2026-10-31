@@ -91,11 +91,20 @@ def tg(method: str, **payload):
 def find_admin_chat(state: dict) -> None:
     """Admin botga /start bosgan bo'lsa, uning chat_id sini eslab qoladi."""
     admin = CONFIG.get("admin_username", "").lstrip("@").lower()
+    if CONFIG.get("admin_chat_id"):
+        state["admin_chat_id"] = CONFIG["admin_chat_id"]
     if not admin or not BOT_TOKEN:
         return
     try:
         updates = tg("getUpdates", timeout=0, allowed_updates=["message"])
     except Exception as e:  # webhook o'rnatilgan bo'lsa ham shu yerga tushadi
+        if "webhook" in str(e).lower():
+            try:
+                wh = tg("getWebhookInfo").get("url", "")
+            except Exception:
+                wh = ""
+            if "/api/telegram" in wh:  # bizning skrinshot boti — tegmaymiz
+                return
         if "webhook" in str(e).lower() and CONFIG.get("delete_old_webhook"):
             tg("deleteWebhook", drop_pending_updates=False)
             log("ℹ️ Eski webhook o'chirildi. @Foydaliadmi botga /start yozsin.")
@@ -126,15 +135,27 @@ def notify_admin(state: dict, text: str) -> None:
         print(f"admin xabari ketmadi: {e}")
 
 
-def publish(caption: str, image_url: str | None, state: dict) -> None:
+def send_photo_bytes(chat_id, photo: bytes, caption: str) -> None:
+    r = requests.post(
+        f"https://api.telegram.org/bot{BOT_TOKEN}/sendPhoto",
+        data={"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"},
+        files={"photo": ("chegirma.jpg", photo, "image/jpeg")},
+        timeout=60,
+    )
+    data = r.json()
+    if not data.get("ok"):
+        raise RuntimeError(f"Telegram sendPhoto: {data.get('description')}")
+
+
+def publish(caption: str, photo: bytes | None, state: dict) -> None:
     channel = CONFIG["channel"]
     target = state.get("admin_chat_id") if DRY_RUN else channel
     if DRY_RUN and not target:
         log("DRY_RUN: admin chat topilmadi, post faqat logda:\n" + caption)
         return
-    if image_url:
+    if photo:
         try:
-            tg("sendPhoto", chat_id=target, photo=image_url, caption=caption, parse_mode="HTML")
+            send_photo_bytes(target, photo, caption)
             return
         except Exception as e:
             log(f"⚠️ Rasm bilan yuborilmadi ({e}), matn bilan yuboraman")
@@ -389,7 +410,39 @@ def hashtag(s: str) -> str:
     return "#" + re.sub(r"[^0-9A-Za-z_]", "", s.title().replace(" ", ""))
 
 
-def build_post(store: str, data: dict, products: list[dict]) -> str:
+def make_card(store: str, data: dict, products: list[dict]) -> bytes | None:
+    try:
+        from card import render_card
+    except Exception as e:
+        log(f"⚠️ Kartochka moduli yuklanmadi: {e}")
+        return None
+    stores = {norm_store(p.get("store") or store) for p in products}
+    single = len(stores) == 1
+    title = next(iter(stores)).upper() if single else "Makkadagi chegirmalar"
+    vf, vt = fmt_date(data.get("valid_from", "")), fmt_date(data.get("valid_to", ""))
+    when = f"{vf} – {vt}" if vf and vt else (f"{vt} gacha" if vt else "Bugungi aksiyalar")
+    items = [
+        {
+            "name": p.get("name_uz") or p.get("name") or "",
+            "size": p.get("size") or "",
+            "store": norm_store(p.get("store") or store),
+            "old_price": p["old_price"],
+            "new_price": p["new_price"],
+            "pct": p["pct"],
+        }
+        for p in products
+    ]
+    try:
+        return render_card(
+            title, f"{when}  •  Makka", items, CONFIG["channel"], not single,
+            int(CONFIG.get("card_max_items", 8)),
+        )
+    except Exception as e:
+        log(f"⚠️ Kartochka chizilmadi: {e}")
+        return None
+
+
+def build_post(store: str, data: dict, products: list[dict], max_items: int | None = None) -> str:
     e = lambda s: html.escape(s, quote=False)
     stores = {norm_store(p.get("store") or store) for p in products}
     single = len(stores) == 1
@@ -410,7 +463,10 @@ def build_post(store: str, data: dict, products: list[dict]) -> str:
         " ".join(hashtag(s) for s in sorted(stores)[:4]) + " #chegirma #Makka",
         f"👉 {CONFIG['channel']}",
     ]
-    max_items = int(CONFIG.get("max_items_per_post", 10))
+    max_items = max_items or int(CONFIG.get("max_items_per_post", 10))
+    rest = len(products) - max_items
+    if rest > 0:
+        footer.insert(1, f"➕ Yana {rest} ta mahsulot — rasmda 👆")
     lines: list[str] = []
     for i, p in enumerate(products[:max_items], 1):
         name = p.get("name_uz") or p.get("name") or ""
@@ -485,9 +541,12 @@ def main() -> int:
             log(f"– Yetarli katta chegirma yo'q ({len(products)} ta): {url}")
             continue
 
-        caption = build_post(store, data, products)
+        card_n = int(CONFIG.get("card_max_items", 8))
+        products = products[:card_n]
+        photo = make_card(store, data, products) if CONFIG.get("make_card", True) else None
+        caption = build_post(store, data, products, 3 if photo else None)
         try:
-            publish(caption, img if CONFIG.get("attach_image", True) else None, state)
+            publish(caption, photo, state)
         except Exception as e:
             errors += 1
             log(f"⚠️ Kanalga yuborilmadi: {e}")

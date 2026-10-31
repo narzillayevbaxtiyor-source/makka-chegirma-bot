@@ -1,0 +1,44 @@
+name: Chegirma boti
+
+on:
+  schedule:
+    # Makka vaqti bilan 08:07 va 17:07 (UTC 05:07 va 14:07)
+    - cron: "7 5 * * *"
+    - cron: "7 14 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Sinov: postlarni kanalga emas, faqat @Foydaliadmi ga yuborish"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chegirma-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Botni ishga tushirish
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: python bot.py
+      - name: Holatni saqlash
+        if: always()
+        run: |
+          git config user.name "chegirma-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state/posted.json
+          git diff --cached --quiet || (git commit -m "holat yangilandi" && git push)

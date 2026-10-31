@@ -95,10 +95,10 @@ def download_file(file_id: str) -> tuple[bytes, str]:
 # --------------------------------------------------------------------------
 # Gemini
 # --------------------------------------------------------------------------
-def pick_model() -> str:
+def pick_models() -> list[str]:
     forced = os.environ.get("GEMINI_MODEL", "").strip()
     if forced:
-        return forced
+        return [forced]
     try:
         r = requests.get(
             "https://generativelanguage.googleapis.com/v1beta/models",
@@ -108,17 +108,22 @@ def pick_model() -> str:
         models = r.json().get("models", [])
     except Exception:
         models = []
-    best, best_score = None, -1.0
+    found = []
     for m in models:
         name = m.get("name", "").replace("models/", "")
         if "generateContent" not in m.get("supportedGenerationMethods", []):
             continue
-        if not re.fullmatch(r"gemini-\d+(\.\d+)?-flash(-latest)?", name):
-            continue  # lite, image, tts, preview va h.k. emas
-        ver = float(re.search(r"gemini-(\d+(?:\.\d+)?)", name).group(1))
-        if ver > best_score:
-            best, best_score = name, ver
-    return best or "gemini-flash-latest"
+        mt = re.fullmatch(r"gemini-(\d+(?:\.\d+)?)-flash(-lite)?(-latest)?", name)
+        if not mt:
+            continue
+        # avval oddiy flash (yangisi birinchi), keyin lite
+        found.append((0 if mt.group(2) else 1, float(mt.group(1)), name))
+    found.sort(reverse=True)
+    names = [n for *_, n in found]
+    for extra in ("gemini-flash-latest", "gemini-flash-lite-latest"):
+        if extra not in names:
+            names.append(extra)
+    return names[:6]
 
 
 GEMINI_PROMPT = """This image is a screenshot or photo of grocery offers in Makkah, Saudi Arabia
@@ -144,7 +149,6 @@ new_price = the offer price. Never guess a number. Max 12 products, biggest disc
 
 
 def gemini_read(img: bytes, mime: str, hint: str) -> dict:
-    model = pick_model()
     body = {
         "contents": [{
             "parts": [
@@ -154,15 +158,24 @@ def gemini_read(img: bytes, mime: str, hint: str) -> dict:
         }],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
     }
-    r = requests.post(
-        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-        params={"key": GEMINI_KEY},
-        json=body,
-        timeout=90,
-    )
-    data = r.json()
+    errors = []
+    data = {}
+    for model in pick_models():
+        r = requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+            params={"key": GEMINI_KEY},
+            json=body,
+            timeout=90,
+        )
+        data = r.json()
+        if "candidates" in data:
+            break
+        err = data.get("error", {})
+        errors.append(f"{model}: {err.get('code')} {str(err.get('message', ''))[:120]}")
+        if err.get("code") not in (402, 403, 404, 429, 500, 503):
+            break
     if "candidates" not in data:
-        raise RuntimeError(f"Gemini ({model}): {str(data.get('error', data))[:300]}")
+        raise RuntimeError("Gemini ishlamadi:\n" + "\n".join(errors[-3:]))
     text = "".join(p.get("text", "") for p in data["candidates"][0]["content"]["parts"])
     text = re.sub(r"^```(?:json)?|```$", "", text.strip()).strip()
     return json.loads(text)

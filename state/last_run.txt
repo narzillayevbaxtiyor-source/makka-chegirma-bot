@@ -1,8 +1,10 @@
-2026-11-03 15:42
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/tea-coffee
-✅ Joylandi: Do'kon — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/tea-coffee)
+2026-11-03 23:30
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/laundry
+✅ Joylandi: Othaim Market — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/laundry)
   ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
-✅ Joylandi: Carrefour, Panda, Othaim Market, Lulu market, AL WAFA, Abraj Hypermarkrt, Noori Supermarket — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products)
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/breads-buns
-✅ Joylandi: Do'kon — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/breads-buns)
+✅ Joylandi: Do'kon — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products)
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/panda-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/panda-offers
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
+✅ Joylandi: Al Nokhba markets — 3 ta mahsulot (https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers)
 Bot ishladi: 3 ta post, 0 ta xato.

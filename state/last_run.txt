@@ -1,12 +1,12 @@
-2026-11-04 15:53
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/breads-buns
-– Yetarli katta chegirma yo'q (1 ta): https://qooty.net/en/ksa/makkah/deals/breads-buns
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/carrefour-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/carrefour-offers
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/panda-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/panda-offers
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/lulu-market-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/lulu-market-offers
+2026-11-04 23:44
   ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/laundry
 – Yetarli katta chegirma yo'q (2 ta): https://qooty.net/en/ksa/makkah/deals/laundry
-Bot ishladi: 0 ta post, 0 ta xato.
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/breads-buns
+– Yetarli katta chegirma yo'q (1 ta): https://qooty.net/en/ksa/makkah/deals/breads-buns
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/othaim-market-offers
+✅ Joylandi: Othaim Market — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/othaim-market-offers)
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/lulu-market-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/lulu-market-offers
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/carrefour-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/carrefour-offers
+Bot ishladi: 1 ta post, 0 ta xato.

@@ -1,12 +1,12 @@
-2026-11-10 16:23
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/othaim-market-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/othaim-market-offers
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/breads-buns
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/breads-buns
-  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
+2026-11-10 23:46
   ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/dishwash
 – Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/dishwash
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/breads-buns
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/breads-buns
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/othaim-market-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/othaim-market-offers
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/deals/tea-coffee
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/tea-coffee
+  ↪ Jina orqali o'qildi (HTTP 403): https://qooty.net/en/ksa/makkah/carrefour-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/carrefour-offers
 Bot ishladi: 0 ta post, 0 ta xato.

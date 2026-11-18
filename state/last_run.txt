@@ -1,7 +1,12 @@
-2026-11-18 16:49
-⚠️ https://qooty.net/en/ksa/makkah/deals/dishwash: to'g'ridan: HTTP 522; Jina HTTP 401
-⚠️ https://qooty.net/en/ksa/makkah/deals/tea-coffee: to'g'ridan: HTTP 522; Jina HTTP 401
-⚠️ https://qooty.net/en/ksa/makkah/panda-offers: to'g'ridan: HTTP 522; Jina HTTP 401
-⚠️ https://qooty.net/en/ksa/makkah/lulu-market-offers: to'g'ridan: HTTP 522; Jina HTTP 401
-⚠️ https://qooty.net/en/ksa/makkah/carrefour-offers: to'g'ridan: HTTP 522; Jina HTTP 401
-Bot ishladi: 0 ta post, 5 ta xato.
+2026-11-19 00:51
+  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/lulu-market-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/lulu-market-offers
+  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/othaim-market-offers
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/othaim-market-offers
+  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
+– Muddati o'tgan (2026-11-17): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
+  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/deals/breads-buns
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/breads-buns
+  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/deals/laundry
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/laundry
+Bot ishladi: 0 ta post, 0 ta xato.

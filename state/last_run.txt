@@ -1,12 +1,7 @@
-2026-11-20 16:59
-  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/othaim-market-offers
+2026-11-21 00:45
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/arabic-sweets-products
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/dishwash
 – Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/othaim-market-offers
-  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/deals/tea-coffee
-– Yetarli katta chegirma yo'q (2 ta): https://qooty.net/en/ksa/makkah/deals/tea-coffee
-  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
-  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/panda-offers
 – Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/panda-offers
-  ↪ Jina orqali o'qildi (HTTP 522): https://qooty.net/en/ksa/makkah/deals/laundry
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/deals/laundry
-Bot ishladi: 0 ta post, 0 ta xato.
+✅ Joylandi: Al Nokhba markets — 3 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/laundry)
+Bot ishladi: 1 ta post, 0 ta xato.

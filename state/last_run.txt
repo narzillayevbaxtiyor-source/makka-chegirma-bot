@@ -1,8 +1,7 @@
-2026-11-23 18:54
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/othaim-market-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/carrefour-offers
-✅ Joylandi: Do'kon — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/breads-buns)
-  ↪ Jina orqali o'qildi (HTTPSConnectionPool(host='qooty.net', port=443): Read timed out. (read timeout=4): https://qooty.net/en/ksa/makkah/lulu-market-offers
-– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/lulu-market-offers
-✅ Joylandi: Do'kon — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/tea-coffee)
-Bot ishladi: 2 ta post, 0 ta xato.
+2026-11-24 04:36
+– Yetarli katta chegirma yo'q (0 ta): https://qooty.net/en/ksa/makkah/al-nokhba-markets-offers
+✅ Joylandi: Lulu — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/lulu-market-offers)
+– Yetarli katta chegirma yo'q (1 ta): https://qooty.net/en/ksa/makkah/panda-offers
+✅ Joylandi: Othaim — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/othaim-market-offers)
+✅ Joylandi: Do'kon — 8 ta mahsulot (https://qooty.net/en/ksa/makkah/deals/laundry)
+Bot ishladi: 3 ta post, 0 ta xato.
